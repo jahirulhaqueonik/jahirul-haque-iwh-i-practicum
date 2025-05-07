@@ -2,6 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const dotenv = require("dotenv");
 const path = require("path");
+require('dotenv').config();
 
 dotenv.config();
 
@@ -16,13 +17,13 @@ app.set("views", path.join(__dirname, "views"));
 
 // Replace with your actual object type ID (e.g., "paws_pet")
 const HUBSPOT_API_KEY = process.env.HUBSPOT_API_KEY;
-const CUSTOM_OBJECT = "paws_pet"; // custom object ID from HubSpot
+const CUSTOM_OBJECT = "2-168245137"; // custom object ID from HubSpot
 
 // 🏠 1️⃣ Homepage Route - Displays custom object records in a table
 app.get("/", async (req, res) => {
   try {
     const response = await axios.get(
-      `https://api.hubapi.com/crm/v3/objects/${CUSTOM_OBJECT}?properties=Name,breed,bio`,
+      `https://api.hubapi.com/crm/v3/objects/${CUSTOM_OBJECT}?properties=Name,breed,age`,
       {
         headers: {
           Authorization: `Bearer ${HUBSPOT_API_KEY}`,

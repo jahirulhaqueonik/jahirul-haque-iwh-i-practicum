@@ -1,0 +1,27 @@
+//- updates.pug
+
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Update Custom Object Form
+
+    form(action="/update-cobj", method="POST")
+      div
+        label(for="name") Name:
+        input(type="text", id="name", name="name", required=true)
+      div
+        label(for="breed") Breed:
+        input(type="text", id="breed", name="breed", required=true)
+      div
+        label(for="bio") Bio:
+        input(type="text", id="bio", name="bio", required=true)
+
+      button(type="submit") Submit
+
+    a(href="/") Return to the homepage
+  footer
+    p
+      | Powered by HubSpot API

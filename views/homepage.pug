@@ -1,0 +1,30 @@
+//- homepage.pug
+
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 Custom Objects Table
+    a(href="/update-cobj") Add to this table
+
+    if records.length > 0
+      table
+        thead
+          tr
+            th Name
+            th Breed
+            th Age
+        tbody
+          each record in records
+            tr
+              td= record.properties.name
+              td= record.properties.breed
+              td= record.properties.age
+    else
+      p No records found.
+    
+  footer
+    p
+      | Powered by HubSpot API
